@@ -1,3 +1,4 @@
+from flask import Flask, render_template, request 
 {% extends "layout.html" %} 
 
 {% block content %} 
@@ -5,3 +6,8 @@
 <p><em>This is the Welcome page!</em></p> 
 
 {% endblock %} 
+
+@app.route('/welcome', methods=['POST']) 
+
+def welcome(): 
+   return render_template("welcome.html", myName=request.form['myName']) 
